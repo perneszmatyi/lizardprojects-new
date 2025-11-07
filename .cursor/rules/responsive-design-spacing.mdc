@@ -1,0 +1,284 @@
+# Responsive Design and Spacing Guidelines
+
+## Creating New Page Segments or Pages
+
+When creating new page segments, components, or entire pages, follow these guidelines for consistent, responsive design.
+
+## Mobile-First Responsive Approach
+
+- Always use a mobile-first approach with Tailwind CSS breakpoints
+- Start with mobile styles (base), then progressively enhance for larger screens
+- Use breakpoints: `sm:` (640px), `md:` (768px), `lg:` (1024px), `xl:` (1280px)
+
+## Centering and Layout
+
+- Use `mx-auto` with `max-w-[1440px]` (or appropriate max-width) to center containers horizontally
+- Apply `items-center` and `justify-center` on flex containers to center content
+- Never rely solely on padding/margin for horizontal positioning - use centering utilities (`mx-auto`, `items-center`)
+- Ensure elements are centered on ALL screen sizes, not just mobile and desktop
+
+## Consistent Padding and Spacing
+
+### Horizontal Padding (Side Padding)
+
+- Use progressive padding that scales smoothly across breakpoints:
+  - Base (mobile): `px-4` (16px)
+  - Small: `sm:px-6` (24px)
+  - Medium: `md:px-8` (32px)
+  - Large: `lg:px-[80px]` (80px)
+- Apply consistent horizontal padding to all sections: `px-4 sm:px-6 md:px-8 lg:px-[80px]`
+- Maintain the same padding values across all components on the same page
+
+### Vertical Spacing Between Sections
+
+- Use consistent vertical spacing that scales responsively:
+  - Mobile: `py-[40px]` or `gap-[40px]`
+  - Medium: `md:py-[60px]` or `md:gap-[60px]`
+  - Large: `lg:py-[80px]` or `lg:gap-[80px]`
+- Wrap sections in semantic elements (`<section>`) with consistent padding
+- Use `space-y-[40px] md:space-y-[60px] lg:space-y-[80px]` for consistent gaps between child elements
+
+### Internal Component Spacing
+
+- Use responsive gaps: `gap-[20px] md:gap-[30px]` for spacing between elements
+- Scale spacing proportionally: smaller on mobile, larger on desktop
+
+## Typography Responsiveness
+
+- Scale typography responsively across breakpoints:
+  - Mobile: Base size (e.g., `text-[32px]`)
+  - Medium: `md:text-[40px]`
+  - Large: `lg:text-[48px]`
+- Adjust line-height proportionally: `leading-[44px] md:leading-[56px] lg:leading-[64px]`
+- Ensure text remains readable on all screen sizes
+
+## Component Structure
+
+### Section Wrapper Pattern
+
+```tsx
+<section className="mx-auto flex w-full max-w-[1440px] flex-col items-center gap-[40px] px-4 py-0 sm:px-6 md:gap-[60px] md:px-8 lg:gap-[80px] lg:px-[80px]">
+  {/* Content */}
+</section>
+```
+
+### Page Layout Pattern
+
+```tsx
+<main className="pt-[80px] md:pt-[100px]">
+  <section className="py-[40px] md:py-[60px] lg:py-[80px]">
+    <Component />
+  </section>
+</section>
+```
+
+## Fixed Navigation Considerations
+
+- When using fixed navigation, add padding-top to main content area
+- Use: `pt-[80px] md:pt-[100px]` on the main wrapper to account for fixed navbar
+- Ensure fixed elements have proper z-index: `z-50` for navbar, `z-40` for dropdowns
+
+## Responsive Component Patterns
+
+### Cards/Lists
+
+- Stack vertically on mobile: `flex-col md:flex-row`
+- Full width on mobile: `w-full md:w-[320px]`
+- Responsive gaps: `gap-[20px] md:gap-[30px]`
+
+### Buttons
+
+- Stack vertically on mobile: `flex-col md:flex-row`
+- Responsive gaps: `gap-4 md:gap-[50px]`
+
+### Images
+
+- Scale images responsively: `h-[120px] w-[156px] md:h-[172.71px] md:w-[224.73px]`
+- Maintain aspect ratios
+
+## Key Principles
+
+1. **Consistency**: Use the same spacing values across all components
+2. **Centering**: Always center containers using `mx-auto` and `items-center`
+3. **Progressive Enhancement**: Start mobile, enhance for larger screens
+4. **Semantic HTML**: Use proper semantic elements (`<main>`, `<section>`, `<nav>`)
+5. **Predictable Spacing**: Use consistent spacing scales that users can expect
+
+## SEO and Accessibility Best Practices
+
+Always be SEO-conscious and ensure accessibility when creating new components, segments, or pages.
+
+### Semantic HTML
+
+- Use proper HTML5 semantic elements:
+  - `<main>` for main content (one per page)
+  - `<section>` for distinct content sections
+  - `<nav>` for navigation menus
+  - `<header>` for page headers
+  - `<footer>` for page footers
+  - `<article>` for standalone content
+  - `<aside>` for sidebar content
+- Avoid using `<div>` when a semantic element is more appropriate
+- Use semantic elements to improve SEO and screen reader navigation
+
+### Heading Hierarchy
+
+- Maintain proper heading hierarchy: `h1` → `h2` → `h3` → `h4` → `h5` → `h6`
+- Never skip heading levels (e.g., don't go from `h1` directly to `h3`)
+- Use only ONE `h1` per page (typically in the hero section)
+- Use headings to structure content logically, not for styling
+- Headings should describe the content that follows them
+
+### Image Alt Text
+
+- Always provide descriptive `alt` text for all images
+- Use `alt=""` (empty string) only for decorative images that don't convey meaning
+- Alt text should describe the image's content and purpose
+- Include relevant keywords naturally, but prioritize clarity
+- For Next.js Image component: always include the `alt` prop
+
+```tsx
+// Good: Descriptive alt text
+<Image
+  alt="Lizardprojects company logo"
+  src="/images/logo.svg"
+  width={206}
+  height={36}
+/>
+
+// Good: Empty alt for decorative images
+<Image
+  alt=""
+  src="/images/decorative-icon.svg"
+  width={24}
+  height={24}
+/>
+```
+
+### ARIA Labels and Accessibility
+
+- Add `aria-label` to interactive elements without visible text labels
+- Use `aria-expanded` for collapsible elements (menus, dropdowns)
+- Use `aria-hidden="true"` for decorative elements that should be ignored by screen readers
+- Provide `aria-describedby` when additional context is needed
+- Use `role` attributes when necessary (but prefer semantic HTML first)
+
+```tsx
+// Good: Button with aria-label
+<button
+  onClick={toggleMenu}
+  aria-label="Toggle mobile menu"
+  aria-expanded={isMenuOpen}
+>
+  {/* Icon */}
+</button>
+
+// Good: Decorative element with aria-hidden
+<div aria-hidden="true">
+  {/* Decorative icon that doesn't need screen reader attention */}
+</div>
+```
+
+### Keyboard Accessibility
+
+- Ensure all interactive elements are keyboard accessible
+- Use proper focus states (visible focus indicators)
+- Maintain logical tab order
+- Provide keyboard shortcuts for common actions when appropriate
+- Use `<button>` for buttons, not `<div>` with onClick handlers
+
+### Form Accessibility
+
+- Always associate form inputs with labels using `<label>` or `aria-label`
+- Use `aria-required` for required fields
+- Provide `aria-describedby` for error messages and help text
+- Group related form fields with `<fieldset>` and `<legend>`
+
+```tsx
+// Good: Properly labeled input
+<label htmlFor="email">Email address</label>
+<input
+  id="email"
+  type="email"
+  aria-required="true"
+  aria-describedby="email-error"
+/>
+
+// Or with aria-label
+<input
+  type="email"
+  aria-label="Email address"
+  aria-required="true"
+/>
+```
+
+### Page Structure and Landmarks
+
+- Use HTML5 landmarks to create a clear page structure:
+  - `<header>` for site header/navigation
+  - `<main>` for main content (one per page)
+  - `<nav>` for navigation sections
+  - `<section>` for distinct content areas
+  - `<footer>` for site footer
+- This helps screen readers navigate and improves SEO
+
+### SEO Considerations
+
+- Use descriptive, keyword-rich page titles in `<title>` tags
+- Include meta descriptions for pages
+- Use proper heading structure for SEO (search engines use headings to understand content hierarchy)
+- Ensure images have descriptive filenames when possible
+- Use semantic HTML to help search engines understand content structure
+- Include structured data (Schema.org) when appropriate
+
+### Example: Well-Structured Component
+
+```tsx
+<section className="mx-auto flex w-full max-w-[1440px] flex-col items-center gap-[40px] px-4 py-0 sm:px-6 md:gap-[60px] md:px-8 lg:gap-[80px] lg:px-[80px]">
+  <h2>Our Services</h2>
+  <div className="flex flex-col gap-4 md:flex-row">
+    <article>
+      <h3>Service One</h3>
+      <Image
+        alt="Service one illustration showing digital marketing tools"
+        src="/images/service-one.svg"
+        width={200}
+        height={150}
+      />
+      <p>Description of service one...</p>
+    </article>
+    <article>
+      <h3>Service Two</h3>
+      <Image
+        alt="Service two illustration showing analytics dashboard"
+        src="/images/service-two.svg"
+        width={200}
+        height={150}
+      />
+      <p>Description of service two...</p>
+    </article>
+  </div>
+</section>
+```
+
+## Checklist for New Components
+
+### Responsive Design
+
+- [ ] Uses `mx-auto` with appropriate `max-w-*` for centering
+- [ ] Has progressive horizontal padding: `px-4 sm:px-6 md:px-8 lg:px-[80px]`
+- [ ] Typography scales responsively across breakpoints
+- [ ] Spacing uses responsive values: `gap-[X] md:gap-[Y] lg:gap-[Z]`
+- [ ] Layout adapts from mobile (stacked) to desktop (horizontal)
+- [ ] Images and icons scale appropriately
+- [ ] Consistent with existing page components
+
+### SEO and Accessibility
+
+- [ ] Uses semantic HTML elements (`<section>`, `<main>`, `<nav>`, etc.)
+- [ ] Has proper heading hierarchy (h1 → h2 → h3, no skipped levels)
+- [ ] All images have descriptive `alt` text
+- [ ] Interactive elements have appropriate ARIA labels
+- [ ] All content is keyboard accessible
+- [ ] Form inputs have associated labels
+- [ ] Page structure uses proper HTML5 landmarks
