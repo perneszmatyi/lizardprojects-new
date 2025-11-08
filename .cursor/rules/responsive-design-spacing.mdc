@@ -1,5 +1,9 @@
 # Responsive Design and Spacing Guidelines
 
+## Comments
+
+- Leave very minimal concise and only necessary few comments.
+
 ## Creating New Page Segments or Pages
 
 When creating new page segments, components, or entire pages, follow these guidelines for consistent, responsive design.
@@ -95,6 +99,7 @@ When creating new page segments, components, or entire pages, follow these guide
 
 - Scale images responsively: `h-[120px] w-[156px] md:h-[172.71px] md:w-[224.73px]`
 - Maintain aspect ratios
+- always use images from public folder
 
 ## Key Principles
 

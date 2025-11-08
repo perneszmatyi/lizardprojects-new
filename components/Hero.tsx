@@ -1,11 +1,10 @@
 import Image from "next/image";
 
-import Button from "./Button";
+import { Button } from "./Button";
 
-// Hero section
-export default function Hero() {
+export const Hero = () => {
   return (
-    <section className="mx-auto flex w-full max-w-[1440px] flex-col items-center gap-[30px] px-4 pb-[24px] md:gap-[50px] sm:px-6 md:px-8 lg:px-[80px]">
+    <section className="mx-auto flex w-full max-w-[1440px] flex-col items-center gap-[30px] px-4 pb-[24px] sm:px-6 md:gap-[50px] md:px-8 lg:px-[80px]">
       <div className="flex flex-col items-center gap-[40px] md:gap-[74px]">
         <div className="flex flex-col items-center px-0 pt-0 pb-[8px]">
           <h1 className="mb-[-8px] flex max-w-[899px] flex-col justify-center text-center text-[36px] leading-[0] font-[var(--font-azeret-mono)] font-medium tracking-[-1.2px] text-[#f2f4fa] md:text-[48px] lg:text-[60px]">
@@ -42,4 +41,4 @@ export default function Hero() {
       </div>
     </section>
   );
-}
+};

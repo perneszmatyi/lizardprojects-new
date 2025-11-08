@@ -3,9 +3,9 @@
 import { useState } from "react";
 import Image from "next/image";
 
-import Button from "./Button";
+import { Button } from "./Button";
 
-export default function Navbar() {
+export const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const toggleMobileMenu = () => {
@@ -18,7 +18,7 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className="fixed top-0 right-0 left-0 z-50 mx-auto flex w-full max-w-[1440px] items-center justify-between border-[0px_0px_0.5px] border-solid border-[rgba(255,255,255,0)] bg-[#0a0a0a]/80 px-4 py-[24px] backdrop-blur-[5px] backdrop-filter sm:px-6 md:px-8 lg:px-[80px]">
+      <nav className="fixed top-0 right-0 left-0 z-50 mx-auto flex w-full max-w-[1440px] items-center justify-between border-[0px_0px_0.5px] border-solid border-[rgba(255,255,255,0)] bg-[#0a0a0a]/80 bg-transparent px-4 py-[24px] backdrop-blur-[5px] backdrop-filter sm:px-6 md:px-8 lg:px-[80px]">
         <div className="relative h-[28px] w-[160px] md:h-[36px] md:w-[205.826px]">
           <Image
             alt="lizardprojects logo"
@@ -163,4 +163,4 @@ export default function Navbar() {
       </div>
     </>
   );
-}
+};
