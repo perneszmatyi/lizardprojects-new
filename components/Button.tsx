@@ -7,12 +7,12 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   children: ReactNode;
 }
 
-export default function Button({
+export const Button = ({
   variant = "Primary",
   children,
   className = "",
   ...props
-}: ButtonProps) {
+}: ButtonProps) => {
   const baseStyles =
     "flex items-center justify-center gap-[10px] rounded-[50px] font-medium leading-normal whitespace-pre font-[var(--font-inter)]";
 
@@ -35,5 +35,4 @@ export default function Button({
       {children}
     </button>
   );
-}
-
+};
