@@ -10,7 +10,7 @@ import {
 
 export default function Home() {
   return (
-    <div className="min-h-screen w-[100vw] bg-[#0a0a0a] bg-[url('/images/background-test.png')] bg-cover">
+    <div className="w-[100vw] overflow-x-hidden bg-[url('/images/background-test.png')] bg-cover">
       <Navbar />
       <main className="pt-[80px] md:pt-[100px]">
         <section className="py-[40px] md:py-[60px] lg:py-[80px]">
