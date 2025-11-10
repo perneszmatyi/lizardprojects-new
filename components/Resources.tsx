@@ -39,7 +39,14 @@ export const Resources = () => {
   ];
 
   return (
-    <section className="mx-auto flex w-full max-w-[1440px] flex-col items-center gap-[60px] px-4 py-[40px] sm:gap-[70px] sm:px-6 sm:py-[50px] md:gap-[60px] md:px-8 md:py-[60px] lg:gap-[80px] lg:px-[80px] lg:py-[80px]">
+    <section className="relative mx-auto flex w-full max-w-[1440px] flex-col items-center gap-[60px] px-4 py-[40px] sm:gap-[70px] sm:px-6 sm:py-[50px] md:gap-[60px] md:px-8 md:py-[60px] lg:gap-[80px] lg:px-[80px] lg:py-[80px]">
+      <Image
+        src="/images/resource-ellipse.svg"
+        alt=""
+        width={657}
+        height={657}
+        className="absolute top-0 left-0 translate-x-[50%]"
+      />
       <div className="flex w-full flex-col items-center justify-center gap-[48px] sm:gap-[56px] md:gap-[60px] lg:flex-row lg:gap-[52px]">
         <div className="flex w-full shrink-0 flex-col items-start gap-[40px] sm:gap-[44px] md:w-auto md:gap-[32px]">
           <div className="flex items-center gap-[24px] sm:gap-[28px] md:gap-[32px]">
@@ -47,7 +54,7 @@ export const Resources = () => {
               <Image
                 alt=""
                 className="block size-full max-w-none"
-                src="/images/blog-icon.svg"
+                src="/images/resource-arrows.svg"
                 width={88}
                 height={49}
               />
@@ -64,7 +71,7 @@ export const Resources = () => {
           </p>
         </div>
 
-        <div className="relative box-border flex w-full shrink-0 flex-col items-center gap-[32px] rounded-[16px] border border-solid border-white bg-[#18062f] px-[24px] pt-[28px] pb-[36px] sm:gap-[36px] sm:px-[28px] sm:pt-[32px] sm:pb-[40px] md:w-auto md:gap-[27px] md:px-[30px] md:pt-[20px] md:pb-[30px]">
+        <div className="border-medium-gray relative box-border flex w-full max-w-[740px] shrink-0 flex-col items-center gap-[32px] rounded-[16px] border bg-[#18062f] px-[24px] pt-[28px] pb-[36px] sm:gap-[36px] sm:px-[28px] sm:pt-[32px] sm:pb-[40px] md:w-auto md:gap-[27px] md:px-[30px] md:pt-[20px] md:pb-[30px]">
           <div className="flex w-full items-center gap-[27px]">
             <div className="flex items-center gap-[24px]">
               <div className="relative h-[20px] w-[20px] sm:h-[22px] sm:w-[22px] md:h-[24px] md:w-[25px]">
@@ -88,17 +95,14 @@ export const Resources = () => {
                 key={post.id}
                 className="flex w-full flex-col items-start gap-[24px] sm:gap-[28px] md:gap-[37px]"
               >
-                <div className="flex w-full flex-col items-center gap-[24px] sm:gap-[28px] md:gap-[32px] lg:flex-row lg:gap-[48px]">
-                  <div className="flex flex-row items-center self-stretch">
-                    <div className="relative aspect-square h-[80px] w-[80px] shrink-0 rounded-[8px] shadow-[3.086px_3.086px_19.287px_0px_rgba(0,0,0,0.25)] sm:h-[90px] sm:w-[90px] md:h-[80px] md:w-[80px]">
-                      <Image
-                        alt={`${post.title} thumbnail`}
-                        className="pointer-events-none absolute inset-0 size-full max-w-none rounded-[8px] object-cover"
-                        src={post.image}
-                        width={90}
-                        height={90}
-                      />
-                    </div>
+                <div className="relative flex w-full flex-col items-center gap-[24px] sm:gap-[28px] md:gap-[32px] lg:flex-row lg:gap-[48px]">
+                  <div className="relative h-[136px] w-[136px] flex-shrink-0 rounded-[8px]">
+                    <Image
+                      alt={`${post.title} thumbnail`}
+                      src="/images/blog-thumbnail-1.png"
+                      fill
+                      className="rounded-[8px] shadow-[3.086px_3.086px_19.287px_0px_rgba(0,0,0,0.25)]"
+                    />
                   </div>
 
                   <div className="flex w-full flex-col items-start gap-[18px] sm:gap-[20px] md:w-auto md:gap-[15px]">

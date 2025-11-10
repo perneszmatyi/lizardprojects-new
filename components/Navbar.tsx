@@ -17,8 +17,16 @@ export const Navbar = () => {
   };
 
   return (
-    <>
-      <nav className="fixed top-0 right-0 left-0 z-50 mx-auto flex w-full max-w-[1440px] items-center justify-between border-[0px_0px_0.5px] border-solid border-[rgba(255,255,255,0)] bg-[#0a0a0a]/80 bg-transparent px-4 py-[24px] backdrop-blur-[5px] backdrop-filter sm:px-6 md:px-8 lg:px-[80px]">
+    <div
+      className={`fixed top-0 right-0 left-0 z-50 ${
+        isMobileMenuOpen && "md:backdrop-blur-0 backdrop-blur-lg"
+      }`}
+    >
+      <nav
+        className={`mx-auto flex w-full items-center justify-between px-4 py-[24px] ${
+          !isMobileMenuOpen && "backdrop-blur-lg"
+        } sm:px-6 md:px-8 md:backdrop-blur-md lg:px-[80px]`}
+      >
         <div className="relative h-[28px] w-[160px] md:h-[36px] md:w-[205.826px]">
           <Image
             alt="lizardprojects logo"
@@ -29,7 +37,7 @@ export const Navbar = () => {
           />
         </div>
 
-        <div className="hidden items-center justify-center gap-[35px] md:flex">
+        <div className="hidden items-center justify-center gap-[35px] lg:flex">
           <a
             href="#pricing"
             className="flex items-center justify-center gap-[10px] p-[10px] text-[14px] font-[var(--font-inter)] font-medium text-[#f2f4fa]"
@@ -74,13 +82,13 @@ export const Navbar = () => {
           </a>
         </div>
 
-        <div className="hidden md:block">
+        <div className="hidden lg:block">
           <Button variant="Secondary">Get in touch</Button>
         </div>
 
         <button
           onClick={toggleMobileMenu}
-          className="flex flex-col items-center justify-center gap-1.5 p-2 md:hidden"
+          className="flex flex-col items-center justify-center gap-1.5 p-2 lg:hidden"
           aria-label="Toggle mobile menu"
           aria-expanded={isMobileMenuOpen}
         >
@@ -103,13 +111,13 @@ export const Navbar = () => {
       </nav>
 
       <div
-        className={`fixed top-[76px] right-0 left-0 z-40 bg-[#0a0a0a]/95 backdrop-blur-[5px] backdrop-filter transition-all duration-300 md:hidden ${
+        className={`min-h-[calc(100vh-76px)] transition-all duration-300 lg:hidden ${
           isMobileMenuOpen
             ? "visible opacity-100"
             : "pointer-events-none invisible opacity-0"
         }`}
       >
-        <div className="mx-auto flex max-w-[1440px] flex-col gap-4 px-4 py-6 sm:px-6 md:px-8 lg:px-[80px]">
+        <div className="mx-auto flex max-w-[1440px] flex-col items-center gap-4 px-4 py-6 sm:px-6 md:px-8 lg:px-[80px]">
           <a
             href="#pricing"
             onClick={closeMobileMenu}
@@ -161,6 +169,6 @@ export const Navbar = () => {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };

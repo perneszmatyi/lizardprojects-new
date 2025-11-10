@@ -1,5 +1,4 @@
-
-export * from "./Navabar";
+export * from "./Navbar";
 export * from "./Hero";
 export * from "./Approach";
 export * from "./Marquee";
