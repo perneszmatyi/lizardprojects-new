@@ -5,13 +5,13 @@ export const Approach = () => {
     <section className="mx-auto flex w-full max-w-[1440px] flex-col items-center gap-[60px] px-4 py-[40px] sm:gap-[70px] sm:px-6 sm:py-[50px] md:gap-[60px] md:px-8 md:py-[60px] lg:gap-[80px] lg:px-[80px] lg:py-[80px]">
       <div className="flex flex-col items-center gap-[32px] sm:gap-[36px] md:gap-[24px]">
         <div className="flex flex-col items-center gap-[44px] sm:gap-[48px] md:gap-[38px]">
-          <h2 className="mb-[-8px] flex max-w-[1020px] flex-col justify-center text-center text-[32px] leading-[0] font-[var(--font-azeret-mono)] font-medium tracking-[-0.96px] text-[var(--color-text-100)] sm:text-[36px] md:text-[40px] lg:text-[48px]">
+          <h2 className="text-light-gray mb-[-8px] flex max-w-[1020px] flex-col justify-center text-center text-[32px] leading-[0] font-[var(--font-azeret-mono)] font-medium tracking-[-0.96px] sm:text-[36px] md:text-[40px] lg:text-[48px]">
             <span className="leading-[44px] sm:leading-[50px] md:leading-[56px] lg:leading-[64px]">
               Our approach
             </span>
           </h2>
 
-          <p className="relative w-full max-w-[1020px] text-center text-[16px] leading-[24px] font-[var(--font-inter)] font-medium text-[var(--color-text-100)] sm:text-[17px] sm:leading-[26px] md:text-[18px] lg:text-[20px]">
+          <p className="text-light-gray relative w-full max-w-[1020px] text-center text-[16px] leading-[24px] font-[var(--font-inter)] font-medium sm:text-[17px] sm:leading-[26px] md:text-[18px] lg:text-[20px]">
             Multi-disciplinary, flexible, and laser-focused on your objectives.
             No fluff, just expertise.
           </p>
@@ -22,11 +22,11 @@ export const Approach = () => {
         <div
           className="relative box-border flex min-h-[240px] w-full shrink-0 flex-col items-center gap-[32px] rounded-[16px] px-[32px] pt-[36px] pb-[44px] sm:min-h-[250px] sm:gap-[30px] sm:px-[34px] sm:pt-[38px] sm:pb-[46px] md:h-[220px] md:w-[320px] md:gap-[27px] md:px-[30px] md:pt-[30px] md:pb-[40px]"
           style={{
-            background: `linear-gradient(to bottom, var(--color-brand-light-blue), var(--color-brand-dark-blue))`,
+            background: `linear-gradient(to bottom, var(--color-light-blue-alt), var(--color-deep-blue))`,
           }}
         >
           <div className="relative flex w-full shrink-0 items-center justify-between">
-            <p className="relative shrink-0 text-[20px] leading-[24px] font-[var(--font-inter)] font-medium whitespace-pre text-[#e8e8e6] sm:text-[21px] sm:leading-[26px] md:text-[23px]">
+            <p className="text-light-gray relative shrink-0 text-[20px] leading-[24px] font-[var(--font-inter)] font-medium whitespace-pre sm:text-[21px] sm:leading-[26px] md:text-[23px]">
               Insight
             </p>
 
@@ -67,11 +67,11 @@ export const Approach = () => {
         <div
           className="relative box-border flex min-h-[240px] w-full shrink-0 flex-col items-center gap-[32px] rounded-[16px] px-[32px] pt-[36px] pb-[44px] sm:min-h-[250px] sm:gap-[30px] sm:px-[34px] sm:pt-[38px] sm:pb-[46px] md:h-[220px] md:w-[320px] md:gap-[27px] md:px-[30px] md:pt-[30px] md:pb-[40px]"
           style={{
-            background: `linear-gradient(to bottom, var(--color-brand-light-blue), var(--color-brand-dark-blue))`,
+            background: `linear-gradient(to bottom, var(--color-light-blue-alt), var(--color-deep-blue))`,
           }}
         >
           <div className="relative flex w-full shrink-0 items-center justify-between">
-            <p className="relative shrink-0 text-[20px] leading-[24px] font-[var(--font-inter)] font-medium whitespace-pre text-[#e8e8e6] sm:text-[21px] sm:leading-[26px] md:text-[23px]">
+            <p className="text-light-gray relative shrink-0 text-[20px] leading-[24px] font-[var(--font-inter)] font-medium whitespace-pre sm:text-[21px] sm:leading-[26px] md:text-[23px]">
               Build & Scale
             </p>
 
@@ -112,11 +112,11 @@ export const Approach = () => {
         <div
           className="relative box-border flex min-h-[240px] w-full shrink-0 flex-col items-center gap-[32px] rounded-[16px] px-[32px] pt-[36px] pb-[44px] sm:min-h-[250px] sm:gap-[30px] sm:px-[34px] sm:pt-[38px] sm:pb-[46px] md:h-[220px] md:w-[320px] md:gap-[27px] md:px-[30px] md:pt-[30px] md:pb-[40px]"
           style={{
-            background: `linear-gradient(to bottom, var(--color-brand-light-blue), var(--color-brand-dark-blue))`,
+            background: `linear-gradient(to bottom, var(--color-light-blue-alt), var(--color-deep-blue))`,
           }}
         >
           <div className="relative flex w-full shrink-0 items-center justify-between">
-            <p className="relative shrink-0 text-[20px] leading-[24px] font-[var(--font-inter)] font-medium whitespace-pre text-[#e8e8e6] sm:text-[21px] sm:leading-[26px] md:text-[23px]">
+            <p className="text-light-gray relative shrink-0 text-[20px] leading-[24px] font-[var(--font-inter)] font-medium whitespace-pre sm:text-[21px] sm:leading-[26px] md:text-[23px]">
               Measure <br aria-hidden="true" />& Optimize
             </p>
 

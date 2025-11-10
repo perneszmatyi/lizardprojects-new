@@ -19,7 +19,6 @@ export default function Home() {
         <section className="py-[40px] md:py-[60px] lg:py-[80px]">
           <Approach />
         </section>
-        <section className="py-[40px] md:py-[60px] lg:py-[80px]"></section>
         <section className="py-[40px] md:py-[60px] lg:py-[80px]">
           <Resources />
         </section>

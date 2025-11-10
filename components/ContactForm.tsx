@@ -10,11 +10,6 @@ export const ContactForm = () => {
       "http://localhost:3845/assets/e861aa6416dd258f085d2b51054c16126e5703f7.svg",
   };
 
-  const decorativeVector =
-    "http://localhost:3845/assets/a8f9453864eab88a40f750c9d2bada18649df8a5.svg";
-  const decorativeLayer =
-    "http://localhost:3845/assets/8a0003a2f3b5811647bf88f9d8e45c46a72c1945.svg";
-
   return (
     <section className="mx-auto flex w-full max-w-[1440px] flex-col items-center gap-[40px] px-4 py-[40px] sm:px-6 md:gap-[60px] md:px-8 md:py-[60px] lg:gap-[80px] lg:px-[80px] lg:py-[80px]">
       <div className="flex w-full flex-col items-center justify-center gap-[40px] md:flex-row md:gap-[60px] lg:gap-[120px]">
@@ -36,7 +31,7 @@ export const ContactForm = () => {
                 <Image
                   alt=""
                   className="block size-full max-w-none"
-                  src={contactPerson.avatar}
+                  src="/images/contact-avatar.svg"
                   width={50}
                   height={50}
                 />
@@ -51,7 +46,7 @@ export const ContactForm = () => {
               </div>
             </div>
 
-            <div className="w-full max-w-[598px] rounded-[20px] border border-solid border-white bg-gradient-to-b from-[#758bf3] to-[#44518d] p-[40px]">
+            <div className="w-full max-w-[598px] rounded-[20px] bg-gradient-to-b from-[#758bf3] to-[#44518d] p-[40px]">
               <div className="flex w-full flex-col items-start gap-[44px]">
                 <div className="flex w-full flex-col items-start gap-[28px]">
                   <div className="h-[42px] w-full rounded-[50px] border-0 bg-[rgba(40,48,97,0.4)] px-[35px] py-[15px]">
@@ -93,14 +88,13 @@ export const ContactForm = () => {
 
         <div className="hidden items-center justify-center md:flex">
           <div className="relative h-[400px] w-[150px] scale-y-[-1] rotate-180 md:h-[500px] md:w-[180px] lg:h-[585.61px] lg:w-[200.78px]">
-            <div className="absolute top-[11.25%] left-[-50%] hidden items-center justify-center border-2 md:left-[-80%] lg:left-[-113.77%] xl:flex">
+            <div className="absolute top-[11.25%] left-[-50%] hidden items-center justify-center md:left-[-80%] lg:left-[-113.77%] xl:flex">
               <div className="relative h-[300px] w-[300px] scale-y-[-1] rotate-180 md:h-[350px] md:w-[350px] lg:h-[430px] lg:w-[430px]">
                 <Image
                   alt=""
-                  className="block size-full max-w-none object-contain"
-                  src={decorativeLayer}
-                  width={430}
-                  height={430}
+                  src="/images/half-globe.svg"
+                  width={200}
+                  height={585}
                 />
               </div>
             </div>
