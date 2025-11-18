@@ -2,8 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
-
-import { Button } from "./Button";
+import { CustomButton } from "../Button/CustomButton";
 
 export const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -18,7 +17,7 @@ export const Navbar = () => {
 
   return (
     <div
-      className={`fixed top-0 right-0 left-0 z-50 ${
+      className={`fixed top-0 right-0 left-0 z-99 ${
         isMobileMenuOpen && "md:backdrop-blur-0 backdrop-blur-lg"
       }`}
     >
@@ -39,51 +38,29 @@ export const Navbar = () => {
 
         <div className="hidden items-center justify-center gap-[35px] lg:flex">
           <a
-            href="#pricing"
-            className="flex items-center justify-center gap-[10px] p-[10px] text-[14px] font-[var(--font-inter)] font-medium text-[#f2f4fa]"
+            href="#what-we-do"
+            className="flex items-center justify-center gap-[10px] p-[10px] text-[14px] font-[var(--font-inter)] font-medium text-[#f2f4fa] transition-colors hover:text-[#03fbce]"
           >
-            Pricing
+            What we do
           </a>
           <a
-            href="#features"
-            className="flex items-center justify-center gap-[10px] p-[10px] text-[14px] font-[var(--font-inter)] font-medium text-[#f2f4fa]"
+            href="#services"
+            className="flex items-center justify-center gap-[10px] p-[10px] text-[14px] font-[var(--font-inter)] font-medium text-[#f2f4fa] transition-colors hover:text-[#03fbce]"
           >
-            Features
+            Services
           </a>
           <a
-            href="#download"
-            className="flex items-center justify-center p-[10px] text-[14px] font-[var(--font-inter)] font-medium text-[#f2f4fa]"
+            href="#projects"
+            className="flex items-center justify-center p-[10px] text-[14px] font-[var(--font-inter)] font-medium text-[#f2f4fa] transition-colors hover:text-[#03fbce]"
           >
-            Download
-            <div className="relative ml-1 h-[6px] w-[12px]">
-              <Image
-                alt="dropdown"
-                className="h-full w-full"
-                src="/images/dropdown-icon.svg"
-                width={12}
-                height={6}
-              />
-            </div>
-          </a>
-          <a
-            href="#blog"
-            className="flex items-center justify-center p-[10px] text-[14px] font-[var(--font-inter)] font-medium text-[#f2f4fa]"
-          >
-            Blog
-            <div className="relative ml-1 h-[6px] w-[12px]">
-              <Image
-                alt="dropdown"
-                className="h-full w-full"
-                src="/images/dropdown-icon.svg"
-                width={12}
-                height={6}
-              />
-            </div>
+            Our work
           </a>
         </div>
 
         <div className="hidden lg:block">
-          <Button variant="Secondary">Get in touch</Button>
+          <a href="#contact">
+            <CustomButton variant="Secondary">Get in touch</CustomButton>
+          </a>
         </div>
 
         <button
@@ -119,53 +96,30 @@ export const Navbar = () => {
       >
         <div className="mx-auto flex max-w-[1440px] flex-col items-center gap-4 px-4 py-6 sm:px-6 md:px-8 lg:px-[80px]">
           <a
-            href="#pricing"
+            href="#what-we-do"
             onClick={closeMobileMenu}
             className="flex items-center justify-center gap-[10px] p-[10px] text-[14px] font-[var(--font-inter)] font-medium text-[#f2f4fa]"
           >
-            Pricing
+            What we do
           </a>
           <a
-            href="#features"
+            href="#services"
             onClick={closeMobileMenu}
             className="flex items-center justify-center gap-[10px] p-[10px] text-[14px] font-[var(--font-inter)] font-medium text-[#f2f4fa]"
           >
-            Features
+            Services
           </a>
           <a
-            href="#download"
+            href="#projects"
             onClick={closeMobileMenu}
             className="flex items-center justify-center p-[10px] text-[14px] font-[var(--font-inter)] font-medium text-[#f2f4fa]"
           >
-            Download
-            <div className="relative ml-1 h-[6px] w-[12px]">
-              <Image
-                alt="dropdown"
-                className="h-full w-full"
-                src="/images/dropdown-icon.svg"
-                width={12}
-                height={6}
-              />
-            </div>
-          </a>
-          <a
-            href="#blog"
-            onClick={closeMobileMenu}
-            className="flex items-center justify-center p-[10px] text-[14px] font-[var(--font-inter)] font-medium text-[#f2f4fa]"
-          >
-            Blog
-            <div className="relative ml-1 h-[6px] w-[12px]">
-              <Image
-                alt="dropdown"
-                className="h-full w-full"
-                src="/images/dropdown-icon.svg"
-                width={12}
-                height={6}
-              />
-            </div>
+            Our work
           </a>
           <div className="pt-2">
-            <Button variant="Secondary">Get in touch</Button>
+            <a href="#contact" onClick={closeMobileMenu}>
+              <CustomButton variant="Secondary">Get in touch</CustomButton>
+            </a>
           </div>
         </div>
       </div>

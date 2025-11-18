@@ -1,0 +1,11 @@
+export const WhatWeDo = () => {
+  return (
+    <section className="relative mx-auto flex w-full max-w-[1440px] items-center px-4 py-[10px] sm:px-6 md:px-8 lg:px-[120px]">
+      <p className="font-azeret-mono w-full text-center text-[18px] leading-[28px] font-medium tracking-[-0.36px] text-[var(--color-light-gray)] sm:text-[22px] sm:leading-[36px] sm:tracking-[-0.44px] md:text-left md:text-[26px] md:leading-[48px] md:tracking-[-0.52px] lg:max-w-[865px] lg:text-[30px] lg:leading-[80px] lg:tracking-[-0.6px]">
+        We&apos;re a creative studio building websites, enterprise-grade
+        software, mobile apps, and AI solutions, backed by design and marketing
+        that makes them succeed.
+      </p>
+    </section>
+  );
+};
