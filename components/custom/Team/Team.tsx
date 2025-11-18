@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-import { Button } from "../Button";
+import { CustomButton } from "../Button/CustomButton";
 import { TeamCard } from "./TeamCard";
 
 export const Team = () => {
@@ -118,7 +118,7 @@ export const Team = () => {
               </p>
             </div>
 
-            <Button variant="Primary">More about us</Button>
+            <CustomButton variant="Primary">More about us</CustomButton>
           </div>
         </div>
       </div>

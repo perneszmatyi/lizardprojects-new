@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-import { Button } from "./Button";
+import { CustomButton } from "../Button/CustomButton";
 
 export const Resources = () => {
   const blogPosts = [
@@ -121,7 +121,7 @@ export const Resources = () => {
                       </div>
                     </div>
 
-                    <Button variant="Filter">Read this</Button>
+                    <CustomButton variant="Filter">Read this</CustomButton>
                   </div>
                 </div>
               </div>
