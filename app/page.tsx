@@ -23,30 +23,30 @@ export default function Home() {
       />
       <Navbar />
       <main className="relative z-20 mx-auto max-w-[1440px] px-8 pt-[40px] md:px-8 md:pt-[100px] lg:px-[80px]">
-        <section className="pt-[60px] pb-[60px] md:pb-[80px] lg:pt-[40px] lg:pb-[120px]">
+        <section className="py-[40px] md:pb-[80px] lg:pt-[40px] lg:pb-[120px]">
           <Hero />
         </section>
         <section
           id="what-we-do"
-          className="flex flex-col items-center py-[60px] md:py-[80px] lg:py-[100px]"
+          className="flex flex-col items-center py-[20px] md:py-[80px] lg:py-[100px]"
         >
           <WhatWeDo />
         </section>
         <section
           id="services"
-          className="z-20 flex flex-col items-center py-[60px] md:py-[80px] lg:py-[100px]"
+          className="z-20 flex flex-col items-center py-[20px] md:py-[80px] lg:py-[100px]"
         >
           <Services />
         </section>
         <section
           id="projects"
-          className="flex flex-col items-center py-[60px] md:py-[80px] lg:pt-[100px] lg:pb-[60px]"
+          className="flex flex-col items-center py-[20px] md:py-[80px] lg:pt-[100px] lg:pb-[60px]"
         >
           <Projects />
         </section>
         <section
           id="contact"
-          className="z-20 flex flex-col py-[60px] md:py-[80px] lg:pt-[40px] lg:pb-[100px]"
+          className="z-20 flex flex-col py-[20px] md:py-[80px] lg:pt-[40px] lg:pb-[100px]"
         >
           <ContactForm />
         </section>
