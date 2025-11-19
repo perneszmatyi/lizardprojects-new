@@ -17,7 +17,7 @@ export const Navbar = () => {
 
   return (
     <div
-      className={`fixed top-0 right-0 left-0 z-99 ${
+      className={`fixed top-0 right-0 left-0 z-99 max-h-[108px] ${
         isMobileMenuOpen && "md:backdrop-blur-0 backdrop-blur-lg"
       }`}
     >
@@ -59,7 +59,7 @@ export const Navbar = () => {
 
         <div className="hidden lg:block">
           <a href="#contact">
-            <CustomButton variant="Secondary">Get in touch</CustomButton>
+            <CustomButton variant="Primary">Get in touch</CustomButton>
           </a>
         </div>
 
