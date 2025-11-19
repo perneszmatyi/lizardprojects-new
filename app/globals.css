@@ -21,7 +21,7 @@
   --color-bright-blue: #3B82F6;
   --color-teal: #14B8A6;
 
-  --color-light-blue: #60A5FA;
+  --color-light-blue: #5A91E2; 
   --color-green: #10B981;
 
   --color-black: #0a0a0a;
@@ -312,5 +312,20 @@ html {
 
 .blink-dot {
   animation: blink 2s ease-in-out infinite;
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeInUp {
+  animation: fadeInUp 0.4s ease-out;
 }
 

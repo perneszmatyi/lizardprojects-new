@@ -110,6 +110,15 @@ export const Projects = () => {
           ))}
         </div>
       </div>
+      <div className="mt-25 hidden w-full justify-end lg:flex">
+        <Image
+          src="/images/arrows.svg"
+          alt=""
+          width={327}
+          height={82}
+          className="scale-x-[-1]"
+        />
+      </div>
     </section>
   );
 };
