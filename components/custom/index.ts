@@ -9,4 +9,5 @@ export * from "./Button/CustomButton";
 export * from "./Form/ContactForm";
 export * from "./Footer/Footer";
 export * from "./Services/Services";
+export * from "./Captcha/captchaProvider";
 
