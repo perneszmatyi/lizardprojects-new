@@ -1,10 +1,6 @@
 "use client";
 
-import { CustomButton } from "../Button/CustomButton";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm } from "react-hook-form";
-import { z } from "zod";
-import { useState } from "react";
+import { Checkbox } from "@/components/ui/checkbox";
 import {
   Form,
   FormControl,
@@ -15,16 +11,20 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Checkbox } from "@/components/ui/checkbox";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useCallback, useState } from "react";
+import { useForm } from "react-hook-form";
+import { z } from "zod";
+import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
+import toast from "react-hot-toast";
+
+import { CustomButton } from "../Button/CustomButton";
 
 const schema = z.object({
   name: z.string().min(1, { message: "Name is required" }),
   email: z.email({ message: "Invalid email address" }),
-  phone: z.string().min(1, { message: "Phone number is required" }),
   message: z.string(),
-  privacy: z.boolean().refine((val) => val === true, {
-    message: "You must accept the privacy policy",
-  }),
+  privacy: z.boolean().refine((val) => val === true),
 });
 
 export const ContactForm = () => {
@@ -41,15 +41,41 @@ export const ContactForm = () => {
     defaultValues: {
       name: "",
       email: "",
-      phone: "",
       message: "",
       privacy: false,
     },
   });
 
-  function onSubmit(values: FormData) {
-    console.log(values);
-  }
+  const { executeRecaptcha } = useGoogleReCaptcha();
+
+  const onSubmit = useCallback(
+    async (data: FormData) => {
+      if (!executeRecaptcha || !tosAccepted) {
+        return;
+      }
+
+      const token = await executeRecaptcha("contactForm");
+
+      const emailRes = await fetch("/api/email", {
+        method: "POST",
+        body: JSON.stringify({
+          data,
+          token: token,
+          // locale: translations.locale,
+        }),
+        headers: { "Content-type": "application/json" },
+      });
+
+      const result = await emailRes.json();
+
+      if (result.success) {
+        toast.success("Email sent successfully");
+      } else {
+        toast.error("Email failed to send");
+      }
+    },
+    [executeRecaptcha, tosAccepted],
+  );
 
   return (
     <section className="flex flex-col gap-[40px] py-[40px] md:gap-[60px] md:py-[60px] lg:gap-[80px] lg:py-[80px]">
@@ -106,25 +132,6 @@ export const ContactForm = () => {
                     </FormItem>
                   )}
                 />
-
-                <FormField
-                  control={form.control}
-                  name="phone"
-                  render={({ field }) => (
-                    <FormItem className="flex-1">
-                      <FormLabel className="sr-only">Phone</FormLabel>
-                      <FormControl>
-                        <Input
-                          type="tel"
-                          placeholder="Phone"
-                          className="font-inter text-light-gray placeholder:text-light-gray h-[42px] border-0 bg-[rgba(167,178,224,0.3)] px-[35px] py-[15px] text-[14px] font-medium"
-                          {...field}
-                        />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
               </div>
 
               <FormField
@@ -154,8 +161,11 @@ export const ContactForm = () => {
                   <FormItem className="flex flex-row items-start gap-[14px] space-y-0">
                     <FormControl>
                       <Checkbox
-                        checked={tosAccepted}
-                        onCheckedChange={handleTosAcceptedChange}
+                        checked={field.value}
+                        onCheckedChange={(checked) => {
+                          field.onChange(checked);
+                          setTosAccepted(checked === true);
+                        }}
                         className="border-gray data-[state=checked]:bg-light-blue mt-0.5 size-[16px] rounded-[2px] data-[state=checked]:text-white"
                       />
                     </FormControl>
@@ -164,7 +174,6 @@ export const ContactForm = () => {
                         We value your privacy and are committed to protecting
                         your data in accordance with GDPR regulations.
                       </FormLabel>
-                      <FormMessage />
                     </div>
                   </FormItem>
                 )}
